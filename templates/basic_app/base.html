@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load my_extras %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <ul class="nav nav-tabs">
+          <li><a class="navbar-brand" href="{% url 'index' %}">BRAND</a></li>
+          <li>
+            <a class="navbar-brand" href="{% url 'admin:index' %}">ADMIN</a>
+          </li>
+          <li>
+            <a class="navbar-brand" href="{% url 'basic_app:base' %}">BASE</a>
+          </li>
+          <li>
+            <a class="navbar-brand" href="{% url 'basic_app:others' %}"
+              >OTHER</a
+            >
+          </li>
+          <li>
+            <a class="navbar-brand" href="{% url 'basic_app:relative' %}"
+              >RELATIVE</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      {% block head_block %}
+      <title>BASE</title>
+      {% endblock %} {% block body_block %}
+      <!-- anything outside of this will be inherited!! -->
+      <h1>This is base.html</h1>
+      {% endblock %}
+    </div>
+  </body>
+</html>
